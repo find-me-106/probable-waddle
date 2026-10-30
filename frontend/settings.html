@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0a0a18"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Settings — Handle</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+<div class="bg"><i></i><i></i><i></i></div>
+<main class="sets">
+  <header class="sets-top">
+    <a class="icon-btn" href="dashboard.html" aria-label="Back to chats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
+    <div><h1>Settings</h1><p>Make it yours. Changes save automatically and follow you to every device.</p></div>
+  </header>
+
+  <section class="sec">
+    <h2>Look &amp; feel</h2>
+    <div class="pv" aria-hidden="true"><div class="m">Hey! How does this look?</div><div class="m mine">Perfect, I love it ✨</div></div>
+    <div class="set"><span>Theme</span><div class="seg" data-k="theme"><button data-v="dark">Dark</button><button data-v="light">Light</button><button data-v="amoled">Black</button><button data-v="auto">Auto</button></div></div>
+    <div class="set"><span>Accent colour</span><div class="sw" data-k="accent" id="swatches"></div></div>
+    <div class="set"><span>Your own colours</span><div class="colors"><input type="color" id="c1" aria-label="First colour"><input type="color" id="c2" aria-label="Second colour"></div></div>
+    <div class="set"><span>Background</span><div class="seg" data-k="bg"><button data-v="aurora">Animated</button><button data-v="gradient">Soft</button><button data-v="solid">Plain</button></div></div>
+    <div class="set"><span>Text size <b id="fs-val"></b></span><input type="range" id="fs" min="13" max="22" step="1" aria-label="Text size"></div>
+    <div class="set"><span>Font</span>
+      <select data-k="font"><option value="default">Bricolage (default)</option><option value="system">System</option><option value="serif">Serif</option><option value="mono">Monospace</option></select></div>
+    <div class="set"><span>Message bubbles</span><div class="seg" data-k="bubble"><button data-v="sharp">Sharp</button><button data-v="rounded">Rounded</button><button data-v="round">Extra round</button></div></div>
+    <div class="set"><span>Reduce motion<small>Turns off animations</small></span><label class="tg"><input type="checkbox" data-k="reduce_motion"><i></i></label></div>
+  </section>
+
+  <section class="sec">
+    <h2>Chats &amp; privacy</h2>
+    <div class="set"><span>Show my online status &amp; last seen<small>If you hide yours, you won't see other people's either</small></span><label class="tg"><input type="checkbox" data-k="show_last_seen"><i></i></label></div>
+    <div class="set"><span>Sound for new messages</span><label class="tg"><input type="checkbox" data-k="sound"><i></i></label></div>
+    <div class="set"><span>24-hour clock</span><label class="tg"><input type="checkbox" data-k="time24"><i></i></label></div>
+  </section>
+
+  <section class="sec">
+    <h2>AI assistant ✨</h2>
+    <div class="set col"><span>Its name</span><input type="text" data-k="ai_name" maxlength="24" placeholder="Nova" autocomplete="off"></div>
+    <div class="set"><span>Personality</span>
+      <select data-k="ai_tone"><option value="friendly">Friendly</option><option value="professional">Professional</option><option value="playful">Playful</option><option value="concise">Short &amp; to the point</option><option value="teacher">Language teacher</option></select></div>
+    <div class="set"><span>It answers in</span>
+      <select data-k="ai_reply_lang"><option value="auto">Same language I write</option><option>English</option><option>Urdu</option><option>Hindi</option><option>Arabic</option><option>Spanish</option><option>French</option><option>German</option><option>Portuguese</option><option>Turkish</option><option>Indonesian</option><option>Chinese</option><option>Japanese</option><option>Russian</option></select></div>
+    <div class="set"><span>Point out my mistakes<small>Shows the corrected sentence before it answers</small></span><label class="tg"><input type="checkbox" data-k="ai_correct"><i></i></label></div>
+    <div class="set"><span>Read answers aloud</span><label class="tg"><input type="checkbox" data-k="ai_speak"><i></i></label></div>
+    <div class="set"><span>Voice &amp; speech language</span>
+      <select data-k="ai_voice_lang"><option value="en-US">English (US)</option><option value="en-GB">English (UK)</option><option value="en-IN">English (India)</option><option value="ur-PK">Urdu</option><option value="hi-IN">Hindi</option><option value="ar-SA">Arabic</option><option value="es-ES">Spanish</option><option value="fr-FR">French</option><option value="de-DE">German</option><option value="pt-BR">Portuguese</option><option value="tr-TR">Turkish</option><option value="id-ID">Indonesian</option><option value="zh-CN">Chinese</option><option value="ja-JP">Japanese</option><option value="ru-RU">Russian</option></select></div>
+    <div class="set col"><span>Your own instructions<small>e.g. “Call me Sam. Explain things like I'm 12.”</small></span><textarea data-k="ai_instructions" maxlength="500" rows="3" placeholder="Anything you want the assistant to always remember…"></textarea></div>
+  </section>
+
+  <section class="sec">
+    <h2>Calls</h2>
+    <div class="set"><span>Video quality<small>Lower saves data on mobile</small></span>
+      <select data-k="call_quality"><option value="low">Low (data saver)</option><option value="medium">Medium</option><option value="high">High (HD)</option></select></div>
+    <div class="set"><span>Join with microphone muted</span><label class="tg"><input type="checkbox" data-k="call_start_muted"><i></i></label></div>
+    <div class="set"><span>Join with camera off</span><label class="tg"><input type="checkbox" data-k="call_start_cam_off"><i></i></label></div>
+  </section>
+
+  <button class="btn ghost block" id="reset">Reset everything to default</button>
+</main>
+<div id="toast"></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>

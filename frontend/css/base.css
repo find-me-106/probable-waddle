@@ -1,0 +1,87 @@
+/* Shared design tokens, background, buttons, inputs, toast */
+:root{
+  --bg:#0a0a18; --panel:rgba(255,255,255,.06); --panel2:rgba(255,255,255,.10); --line:rgba(255,255,255,.13);
+  --ink:#f5f4ff; --mute:#a9a7cc;
+  --a1:#7c5cff; --a2:#ff5ca8; --a3:#22d3ee; --good:#22c55e; --bad:#ff6b81;
+  --grad:linear-gradient(135deg,#7c5cff 0%,#c35cff 50%,#ff5ca8 100%);
+  --glow:var(--glow); --fs:16px; --font:"Bricolage Grotesque",system-ui,sans-serif; --br:18px;
+  --surface:rgba(10,10,28,.55); --surface2:rgba(10,10,28,.4); --menu:rgba(22,20,50,.97); --field:rgba(255,255,255,.05);
+  --card1:rgba(255,255,255,.12); --card2:rgba(255,255,255,.04); --chip:#d6ccff; --dpring:#15133a;
+}
+/* themes (chosen per person in Settings) */
+[data-theme=light]{--bg:#f4f3ff;--panel:rgba(30,24,90,.05);--panel2:rgba(30,24,90,.09);--line:rgba(30,24,90,.15);--ink:#16143a;--mute:#5d5a85;
+  --surface:rgba(255,255,255,.78);--surface2:rgba(255,255,255,.65);--menu:rgba(255,255,255,.98);--field:rgba(30,24,90,.045);
+  --card1:rgba(255,255,255,.95);--card2:rgba(255,255,255,.75);--chip:#4a35c9;--dpring:#fff;color-scheme:light}
+[data-theme=light] .bg{background:radial-gradient(1100px 650px at 85% -10%,#e0d9ff 0%,transparent 60%),var(--bg)}
+[data-theme=light] .bg i{opacity:.22}
+[data-theme=amoled]{--bg:#000;--surface:rgba(0,0,0,.72);--surface2:rgba(0,0,0,.6);--menu:rgba(12,12,20,.98);--dpring:#000}
+[data-theme=amoled] .bg{background:#000}[data-theme=amoled] .bg i{opacity:.14}
+[data-bg=solid] .bg i{display:none}[data-bg=solid] .bg{background:var(--bg)}
+[data-bg=gradient] .bg i{animation:none}
+[data-motion=off] *,[data-motion=off] *::before,[data-motion=off] *::after{animation:none!important;transition:none!important}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:var(--fs);line-height:1.5;overflow-x:hidden}
+a{color:var(--a3);text-decoration:none}
+svg{display:block}
+
+/* animated aurora background */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(1100px 650px at 85% -10%,#1f1658 0%,transparent 60%),var(--bg)}
+.bg i{position:absolute;width:46vmax;height:46vmax;border-radius:50%;filter:blur(90px);opacity:.38;animation:drift 18s ease-in-out infinite alternate}
+.bg i:nth-child(1){background:var(--a1);left:-12vmax;top:-10vmax}
+.bg i:nth-child(2){background:var(--a2);right:-14vmax;bottom:-14vmax;animation-delay:-6s}
+.bg i:nth-child(3){background:var(--a3);left:38%;top:42%;width:28vmax;height:28vmax;opacity:.16;animation-delay:-12s}
+@keyframes drift{to{transform:translate(6vmax,4vmax) scale(1.15)}}
+
+/* entrance animations */
+.rise{animation:rise .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s)}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:scale(.85) translateY(8px)}to{opacity:1;transform:none}}
+
+/* logo */
+.logo{display:inline-flex;align-items:center;gap:10px;font-size:24px;font-weight:800;letter-spacing:-1px;color:var(--ink)}
+.mark{width:28px;height:28px;border-radius:9px;background:var(--grad);position:relative;box-shadow:0 6px 20px -4px rgba(195,92,255,.8)}
+.mark::after{content:"";position:absolute;inset:7px;border-radius:50%;background:#fff;opacity:.92}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--grad);color:#fff;border:0;border-radius:14px;padding:12px 20px;font-family:inherit;font-weight:600;font-size:15px;line-height:1;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .25s,filter .2s,background .2s;box-shadow:0 10px 26px -10px var(--glow)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 32px -10px rgba(255,92,168,.7);filter:brightness(1.08)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:var(--panel);border:1px solid var(--line);box-shadow:none;color:var(--ink)}
+.btn.ghost:hover{background:var(--panel2)}
+.btn.big{padding:16px 28px;font-size:16px}
+.btn.block{width:100%}
+.btn.google{background:#fff;color:#202124;box-shadow:0 8px 24px -12px rgba(255,255,255,.5)}
+.btn.google svg{width:20px;height:20px}
+.btn[disabled]{opacity:.6;pointer-events:none}
+.icon-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:transform .2s,background .2s}
+.icon-btn:hover{background:var(--panel2);transform:scale(1.08)}
+.icon-btn svg{width:20px;height:20px}
+
+/* inputs */
+input{width:100%;padding:14px 16px;margin:6px 0;border-radius:14px;border:1px solid var(--line);background:var(--field);color:var(--ink);font:inherit;transition:border-color .2s,box-shadow .2s,background .2s}
+input::placeholder{color:#7f7da8}
+input:focus,textarea:focus,select:focus{outline:0;border-color:var(--a1);box-shadow:0 0 0 4px color-mix(in srgb,var(--a1) 25%,transparent)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--a3);outline-offset:3px}
+.pw{position:relative}.pw input{padding-right:48px}
+.pw button{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;background:none;color:var(--mute);cursor:pointer;display:grid;place-items:center;border-radius:10px}
+.pw button:hover{color:var(--ink)}.pw svg{width:20px;height:20px}
+.err{color:var(--bad);min-height:1.2em;font-size:14px;margin:6px 0}
+
+/* toast */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:rgba(20,18,44,.92);backdrop-filter:blur(14px);border:1px solid var(--line);color:#f5f4ff;padding:12px 18px;border-radius:14px;display:none;z-index:99;animation:pop .3s both;max-width:90vw}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* ---------- mobile friendly ---------- */
+html{-webkit-text-size-adjust:100%}
+*{-webkit-tap-highlight-color:transparent}
+button,a,input{touch-action:manipulation}
+@media(max-width:700px){
+  input{font-size:16px}              /* stops iOS zoom on focus */
+  .btn{min-height:46px}
+  #toast{bottom:calc(20px + env(safe-area-inset-bottom))}
+}
+.btn.danger{background:linear-gradient(135deg,#ef4444,#f43f5e);box-shadow:0 10px 26px -10px rgba(239,68,68,.9)}
+.icon-btn{flex:none}

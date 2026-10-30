@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0a0a18"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Call history — Handle</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/history.css">
+</head>
+<body>
+<div class="bg"><i></i><i></i><i></i></div>
+<div class="hpage">
+  <header class="hhead">
+    <a class="icon-btn" href="dashboard.html" aria-label="Back to chats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
+    <h1>Call history</h1>
+  </header>
+  <div class="tabs" role="tablist">
+    <button class="tab on" data-f="all" role="tab">All</button>
+    <button class="tab" data-f="missed" role="tab">Missed</button>
+  </div>
+  <div id="calls"></div>
+</div>
+<div id="toast"></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/history.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+/* Call history page */
+.hpage{max-width:720px;margin:0 auto;min-height:100vh;min-height:100dvh;padding:calc(18px + env(safe-area-inset-top)) 16px calc(24px + env(safe-area-inset-bottom))}
+.hhead{display:flex;align-items:center;gap:14px;margin-bottom:18px;animation:rise .6s both}
+.hhead h1{margin:0;font-size:28px;letter-spacing:-.5px}
+.hhead .icon-btn{text-decoration:none;color:var(--ink)}
+.tabs{display:inline-flex;padding:4px;border-radius:999px;background:var(--panel);border:1px solid var(--line);margin-bottom:10px;animation:rise .6s .1s both}
+.tab{border:0;background:none;color:var(--mute);font:inherit;font-weight:600;padding:9px 22px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s;min-height:40px}
+.tab.on{background:var(--grad);color:#fff}
+.day{margin:20px 6px 8px;color:var(--mute);font-size:12px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600}
+.crow{display:flex;align-items:center;gap:10px;padding:6px 8px 6px 6px;margin-bottom:8px;border-radius:20px;background:var(--panel);border:1px solid var(--line);animation:rise .5s both;transition:background .2s,transform .2s}
+.crow:hover{background:var(--panel2);transform:translateY(-2px)}
+.cmain{display:flex;align-items:center;gap:14px;flex:1;min-width:0;padding:6px;color:var(--ink);text-decoration:none}
+.cmain .av{width:46px;height:46px;font-size:18px}
+.ctext{flex:1;min-width:0}
+.ctext b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ctext small{display:flex;align-items:center;gap:6px;color:var(--mute);font-size:13px}
+.ctext small svg{width:14px;height:14px;flex:none}
+.ctext small.bad{color:var(--bad)}.ctext small.ok{color:var(--good)}
+.ctime{color:var(--mute);font-size:12px;white-space:nowrap}
+.cbtns{display:flex;gap:6px}
+.cbtns .icon-btn{width:40px;height:40px}
+.hempty{text-align:center;color:var(--mute);padding:70px 20px;animation:fade .6s both}
+.hempty svg{width:54px;height:54px;margin:0 auto 14px;opacity:.5}
+@media(max-width:520px){.ctime{display:none}.hhead h1{font-size:24px}}

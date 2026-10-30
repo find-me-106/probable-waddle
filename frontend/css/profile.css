@@ -1,0 +1,15 @@
+/* Profile page */
+.card.profile{padding-top:44px}
+.avatar-wrap{position:relative;width:146px;height:146px;margin:0 auto 18px;border-radius:50%;padding:5px;background:conic-gradient(from 0deg,#7c5cff,#ff5ca8,#22d3ee,#7c5cff);animation:spin 6s linear infinite}
+.avatar-wrap .dp{width:100%;height:100%;border-radius:50%;object-fit:cover;border:5px solid var(--dpring);background:var(--dpring);animation:spin 6s linear infinite reverse}
+.avatar-wrap label{position:absolute;right:2px;bottom:2px;width:42px;height:42px;border-radius:50%;background:var(--grad);display:grid;place-items:center;cursor:pointer;border:3px solid var(--dpring);transition:transform .2s;animation:spin 6s linear infinite reverse}
+.avatar-wrap label:hover{transform:scale(1.15)}
+.avatar-wrap label svg{width:18px;height:18px;color:#fff}
+.profile h2{margin:0;font-size:30px}
+.chip{display:inline-block;margin:8px 0 18px;padding:6px 16px;border-radius:999px;background:rgba(124,92,255,.2);border:1px solid rgba(124,92,255,.5);color:var(--chip);font-weight:600}
+.info{display:flex;align-items:center;gap:12px;text-align:left;padding:14px 16px;border-radius:16px;background:var(--panel);border:1px solid var(--line);margin-bottom:22px;color:var(--mute);word-break:break-all}
+.info svg{width:20px;height:20px;flex:none;color:var(--a3)}
+.actions{display:flex;gap:12px}.actions .btn{flex:1}
+.actions svg{width:18px;height:18px}
+
+@media(max-width:700px){.avatar-wrap{width:128px;height:128px}.actions{flex-direction:column}}
